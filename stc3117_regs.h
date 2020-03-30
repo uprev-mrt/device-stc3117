@@ -374,9 +374,3 @@
   Configs                                                                            
 *******************************************************************************/
 
-/**
- * @brief 
- * @param dev ptr to stc3117 device
- */
-#define STC_LOAD_CONFIG_DUMMY(dev) \
-
