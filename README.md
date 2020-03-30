@@ -266,15 +266,11 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="field" colspan="8">CTRL</td>
+   <td class="empty" colspan="8"></td>
 
   </tr>
 </table>
 
-
-<h2> Fields:</h2>
-
-<b>CTRL:</b> Control and status register
 
 
 <div id="register_soc_detail" class="packet">

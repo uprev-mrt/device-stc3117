@@ -49,11 +49,6 @@
     #define STC_MODE_FORCE_CC                                      0x20 /* Force the relaxation timer to switch to the Coulomb counter (CC) state */
     #define STC_MODE_FORCE_VM                                      0x40 /* Force the relaxation timer to switch to voltage mode (VM) state */
 
-/* CTRL Register Fields */
-    /* CTRL -> CTRL */
-    #define STC_CTRL_CTRL_FIELD_MASK                               0xFF /* Control and status register */
-    #define STC_CTRL_CTRL_FIELD_OFFSET                             0x00
-
 /* SOC Register Fields */
     /* SOC -> SOC */
     #define STC_SOC_SOC_FIELD_MASK                                 0xFFFF /* Battery SOC (LSB = 1/512 %) */
@@ -196,113 +191,90 @@
 *******************************************************************************/
 
 /**
- * @brief reads the CTRL field from the CTRL register 
- * @param dev ptr to stc3117 device
- */
-#define stc_get_ctrl_ctrl(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCtrl, STC_CTRL_CTRL_FIELD_MASK )
-
-/**
  * @brief reads the SOC field from the SOC register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_soc_soc(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSoc, STC_SOC_SOC_FIELD_MASK )
-
+#define stc_get_soc(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSoc, STC_SOC_SOC_FIELD_MASK )
 /**
  * @brief reads the COUNTER field from the COUNTER register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_counter_counter(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCounter, STC_COUNTER_COUNTER_FIELD_MASK )
-
+#define stc_get_counter(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCounter, STC_COUNTER_COUNTER_FIELD_MASK )
 /**
  * @brief reads the CURRENT field from the CURRENT register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_current_current(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCurrent, STC_CURRENT_CURRENT_FIELD_MASK )
-
+#define stc_get_current(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCurrent, STC_CURRENT_CURRENT_FIELD_MASK )
 /**
  * @brief reads the VOLTAGE field from the VOLTAGE register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_voltage_voltage(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mVoltage, STC_VOLTAGE_VOLTAGE_FIELD_MASK )
-
+#define stc_get_voltage(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mVoltage, STC_VOLTAGE_VOLTAGE_FIELD_MASK )
 /**
  * @brief reads the TEMPERATURE field from the TEMPERATURE register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_temperature_temperature(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mTemperature, STC_TEMPERATURE_TEMPERATURE_FIELD_MASK )
-
+#define stc_get_temperature(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mTemperature, STC_TEMPERATURE_TEMPERATURE_FIELD_MASK )
 /**
  * @brief reads the AVG_CURRENT field from the AVG_CURRENT register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_avg_current_avg_current(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mAvgCurrent, STC_AVG_CURRENT_AVG_CURRENT_FIELD_MASK )
-
+#define stc_get_avg_current(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mAvgCurrent, STC_AVG_CURRENT_AVG_CURRENT_FIELD_MASK )
 /**
  * @brief reads the OCV field from the OCV register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_ocv_ocv(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mOcv, STC_OCV_OCV_FIELD_MASK )
-
+#define stc_get_ocv(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mOcv, STC_OCV_OCV_FIELD_MASK )
 /**
  * @brief reads the CC_CNF field from the CC_CNF register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_cc_cnf_cc_cnf(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCcCnf, STC_CC_CNF_CC_CNF_FIELD_MASK )
-
+#define stc_get_cc_cnf(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCcCnf, STC_CC_CNF_CC_CNF_FIELD_MASK )
 /**
  * @brief reads the VM_CNF field from the VM_CNF register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_vm_cnf_vm_cnf(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mVmCnf, STC_VM_CNF_VM_CNF_FIELD_MASK )
-
+#define stc_get_vm_cnf(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mVmCnf, STC_VM_CNF_VM_CNF_FIELD_MASK )
 /**
  * @brief reads the ALARM_SOC field from the ALARM_SOC register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_alarm_soc_alarm_soc(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mAlarmSoc, STC_ALARM_SOC_ALARM_SOC_FIELD_MASK )
-
+#define stc_get_alarm_soc(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mAlarmSoc, STC_ALARM_SOC_ALARM_SOC_FIELD_MASK )
 /**
  * @brief reads the ALARM_VOLTAGE field from the ALARM_VOLTAGE register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_alarm_voltage_alarm_voltage(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mAlarmVoltage, STC_ALARM_VOLTAGE_ALARM_VOLTAGE_FIELD_MASK )
-
+#define stc_get_alarm_voltage(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mAlarmVoltage, STC_ALARM_VOLTAGE_ALARM_VOLTAGE_FIELD_MASK )
 /**
  * @brief reads the CURRENT_THRES field from the CURRENT_THRES register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_current_thres_current_thres(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCurrentThres, STC_CURRENT_THRES_CURRENT_THRES_FIELD_MASK )
-
+#define stc_get_current_thres(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCurrentThres, STC_CURRENT_THRES_CURRENT_THRES_FIELD_MASK )
 /**
  * @brief reads the CMONIT_COUNT field from the CMONIT_COUNT register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_cmonit_count_cmonit_count(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCmonitCount, STC_CMONIT_COUNT_CMONIT_COUNT_FIELD_MASK )
-
+#define stc_get_cmonit_count(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCmonitCount, STC_CMONIT_COUNT_CMONIT_COUNT_FIELD_MASK )
 /**
  * @brief reads the CMONIT_MAX field from the CMONIT_MAX register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_cmonit_max_cmonit_max(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCmonitMax, STC_CMONIT_MAX_CMONIT_MAX_FIELD_MASK )
-
+#define stc_get_cmonit_max(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCmonitMax, STC_CMONIT_MAX_CMONIT_MAX_FIELD_MASK )
 /**
  * @brief reads the ID field from the ID register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_id_id(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mId, STC_ID_ID_FIELD_MASK )
-
+#define stc_get_id(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mId, STC_ID_ID_FIELD_MASK )
 /**
  * @brief reads the CC_ADJ field from the CC_ADJ register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_cc_adj_cc_adj(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCcAdj, STC_CC_ADJ_CC_ADJ_FIELD_MASK )
-
+#define stc_get_cc_adj(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCcAdj, STC_CC_ADJ_CC_ADJ_FIELD_MASK )
 /**
  * @brief reads the VM_ADJ field from the VM_ADJ register 
  * @param dev ptr to stc3117 device
  */
-#define stc_get_vm_adj_vm_adj(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mVmAdj, STC_VM_ADJ_VM_ADJ_FIELD_MASK )
-
+#define stc_get_vm_adj(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mVmAdj, STC_VM_ADJ_VM_ADJ_FIELD_MASK )
 
 
 /*******************************************************************************
@@ -310,65 +282,50 @@
 *******************************************************************************/
 
 /**
- * @brief writes the CTRL field to the CTRL register 
- * @param dev ptr to stc3117 device
- */
-#define stc_set_ctrl_ctrl(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mCtrl, STC_CTRL_CTRL_FIELD_MASK , (val) )
-
-/**
  * @brief writes the SOC field to the SOC register 
  * @param dev ptr to stc3117 device
  */
-#define stc_set_soc_soc(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSoc, STC_SOC_SOC_FIELD_MASK , (val) )
-
+#define stc_set_soc(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSoc, STC_SOC_SOC_FIELD_MASK , (val) )
 /**
  * @brief writes the AVG_CURRENT field to the AVG_CURRENT register 
  * @param dev ptr to stc3117 device
  */
-#define stc_set_avg_current_avg_current(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mAvgCurrent, STC_AVG_CURRENT_AVG_CURRENT_FIELD_MASK , (val) )
-
+#define stc_set_avg_current(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mAvgCurrent, STC_AVG_CURRENT_AVG_CURRENT_FIELD_MASK , (val) )
 /**
  * @brief writes the OCV field to the OCV register 
  * @param dev ptr to stc3117 device
  */
-#define stc_set_ocv_ocv(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mOcv, STC_OCV_OCV_FIELD_MASK , (val) )
-
+#define stc_set_ocv(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mOcv, STC_OCV_OCV_FIELD_MASK , (val) )
 /**
  * @brief writes the CC_CNF field to the CC_CNF register 
  * @param dev ptr to stc3117 device
  */
-#define stc_set_cc_cnf_cc_cnf(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mCcCnf, STC_CC_CNF_CC_CNF_FIELD_MASK , (val) )
-
+#define stc_set_cc_cnf(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mCcCnf, STC_CC_CNF_CC_CNF_FIELD_MASK , (val) )
 /**
  * @brief writes the VM_CNF field to the VM_CNF register 
  * @param dev ptr to stc3117 device
  */
-#define stc_set_vm_cnf_vm_cnf(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mVmCnf, STC_VM_CNF_VM_CNF_FIELD_MASK , (val) )
-
+#define stc_set_vm_cnf(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mVmCnf, STC_VM_CNF_VM_CNF_FIELD_MASK , (val) )
 /**
  * @brief writes the ALARM_SOC field to the ALARM_SOC register 
  * @param dev ptr to stc3117 device
  */
-#define stc_set_alarm_soc_alarm_soc(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mAlarmSoc, STC_ALARM_SOC_ALARM_SOC_FIELD_MASK , (val) )
-
+#define stc_set_alarm_soc(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mAlarmSoc, STC_ALARM_SOC_ALARM_SOC_FIELD_MASK , (val) )
 /**
  * @brief writes the ALARM_VOLTAGE field to the ALARM_VOLTAGE register 
  * @param dev ptr to stc3117 device
  */
-#define stc_set_alarm_voltage_alarm_voltage(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mAlarmVoltage, STC_ALARM_VOLTAGE_ALARM_VOLTAGE_FIELD_MASK , (val) )
-
+#define stc_set_alarm_voltage(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mAlarmVoltage, STC_ALARM_VOLTAGE_ALARM_VOLTAGE_FIELD_MASK , (val) )
 /**
  * @brief writes the CURRENT_THRES field to the CURRENT_THRES register 
  * @param dev ptr to stc3117 device
  */
-#define stc_set_current_thres_current_thres(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mCurrentThres, STC_CURRENT_THRES_CURRENT_THRES_FIELD_MASK , (val) )
-
+#define stc_set_current_thres(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mCurrentThres, STC_CURRENT_THRES_CURRENT_THRES_FIELD_MASK , (val) )
 /**
  * @brief writes the CMONIT_MAX field to the CMONIT_MAX register 
  * @param dev ptr to stc3117 device
  */
-#define stc_set_cmonit_max_cmonit_max(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mCmonitMax, STC_CMONIT_MAX_CMONIT_MAX_FIELD_MASK , (val) )
-
+#define stc_set_cmonit_max(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mCmonitMax, STC_CMONIT_MAX_CMONIT_MAX_FIELD_MASK , (val) )
 
 /*******************************************************************************
   Configs                                                                            

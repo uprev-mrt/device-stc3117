@@ -39,7 +39,7 @@ registers:
 
 
 ###########################################################################################################
-#                                   VALUES                                                                #
+#                                   Fields                                                                #
 ###########################################################################################################
 
 fields:
@@ -51,6 +51,8 @@ fields:
       - GG_RUN:     {bit: 4, desc: creates a flag at bit 1 of the DUMMY register}
       - FORCE_CC:   {bit: 5, desc: Force the relaxation timer to switch to the Coulomb counter (CC) state}
       - FORCE_VM:   {bit: 6, desc: Force the relaxation timer to switch to voltage mode (VM) state}
+    
+    - SOC
 
 
 
