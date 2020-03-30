@@ -65,7 +65,10 @@ mrt_status_t stc_test(stc3117_t* dev)
 {
     mrt_status_t status = MRT_STATUS_ERROR;
     /*user-block-test-start*/
-
+    if( stc_read_reg(dev, &dev->mId) == STC_ID_DEFAULT)
+    {
+        status = MRT_STATUS_OK;
+    }
     /*user-block-test-end*/
     return status;
 }
