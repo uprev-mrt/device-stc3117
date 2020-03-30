@@ -1,0 +1,65 @@
+---
+name: stc3117
+author: Jason Berger
+created: 03/30/2020
+description: Gas gauge IC with battery charger control
+datasheet: https://www.st.com/content/ccc/resource/technical/document/datasheet/ea/b5/01/6e/dd/f0/49/3e/DM00105047.pdf/files/DM00105047.pdf/jcr:content/translations/en.DM00105047.pdf
+mfg: STMicroelectronics
+mfg_pn: STC3117IJT
+digikey_pn: 497-15387-1-ND
+prefix: stc  #prefix used in code generation
+bus: I2C    # defines the buses that can be used to access registers 
+i2c_addr: 0xE0  
+
+###########################################################################################################
+#                                   REGISTERS                                                             #
+###########################################################################################################
+
+registers:               
+    - MODE:           { addr: 0 , type: uint8, perm: RW, desc: Mode register}
+    - CTRL:           { addr: 1 , type: uint8, perm: RW, desc: Control and status register}
+    - SOC:            { addr: 2 , type: uint16, perm: RW, desc: Battery SOC (LSB = 1/512 %)}
+    - COUNTER:        { addr: 4 , type: uint16, default: 0, perm: R, desc: Number of conversions}
+    - CURRENT:        { addr: 6 , type: uint16, default: 0, perm: R, desc: Battery current}
+    - VOLTAGE:        { addr: 8 , type: uint16, default: 0, perm: R, desc: Battery voltage (LSB = 2.2 mV)}
+    - TEMPERATURE:    { addr: 10 , type: uint8, default: 0, perm: R, desc: Temperature in degrees C (LSB = 1deg C )}
+    - AVG_CURRENT:    { addr: 11 , type: uint16, default: 0, perm: RW, desc: Battery average current or SOC change rate }
+    - OCV:            { addr: 13 , type: uint16, default: 0, perm: RW, desc: OCV register (LSV = 0.55 mV) }
+    - CC_CNF:         { addr: 15 , type: uint16, default: 395, perm: RW, desc: Battery average current or SOC change rate }
+    - VM_CNF:         { addr: 17 , type: uint16, default: 321, perm: RW, desc: Voltage gas gauge algorithm parameter }
+    - ALARM_SOC:      { addr: 19 , type: uint8, default: 0x02, perm: RW, desc: SOC alarm level in (LSB = 0.5%) }
+    - ALARM_VOLTAGE:  { addr: 20 , type: uint8, default: 0xAA, perm: RW, desc: Battery low voltage alarm level (LSB = 17.6 mV)  }
+    - CURRENT_THRES:  { addr: 21 , type: uint8, default: 0x0A, perm: RW, desc: Current threshold for current monitoring (LSB = 47.04 uV ) }
+    - CMONIT_COUNT:   { addr: 22 , type: uint8, default: 0x78, perm: R, desc: Current monitoring counter }
+    - CMONIT_MAX:     { addr: 23 , type: uint8, default: 0x78, perm: RW, desc: Maximum counter value for current monitoring }
+    - ID:             { addr: 24 , type: uint8, default: 0x16, perm: R, desc: Part type ID = 16h }
+    - CC_ADJ:         { addr: 27 , type: uint16, default: 0, perm: R, desc: Coulomb counter adjustment register }
+    - VM_ADJ:         { addr: 29 , type: uint16, default: 0, perm: R, desc: Voltage mode adjustment register }
+
+
+
+###########################################################################################################
+#                                   VALUES                                                                #
+###########################################################################################################
+
+fields:
+    - MODE:  #create flags and fields in the DUMMY register
+      - VMODE:      {bit: 0, desc: Power saving voltage mode}
+      - BIBATD_PU:  {bit: 1, desc: BATD internal pull-up enable}
+      - FORCE_CD:   {bit: 2, desc: Force CD output high }
+      - ALM_ENA:    {bit: 3, desc: Enable Alarm function}
+      - GG_RUN:     {bit: 4, desc: creates a flag at bit 1 of the DUMMY register}
+      - FORCE_CC:   {bit: 5, desc: Force the relaxation timer to switch to the Coulomb counter (CC) state}
+      - FORCE_VM:   {bit: 6, desc: Force the relaxation timer to switch to voltage mode (VM) state}
+
+
+
+
+###########################################################################################################
+#                                   Preset Configs                                                        #
+###########################################################################################################
+configs:
+    - DUMMY: {BIT0: 0, BIT1: 1, REMAINING: 0xAA}
+
+
+
