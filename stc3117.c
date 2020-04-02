@@ -18,25 +18,25 @@
 static mrt_status_t stc_init(stc3117_t* dev)
 {   
     /* Initialize Register Descriptors */
-    REG_INIT( dev->mMode , STC_REG_MODE_ADDR , uint8, REG_PERM_RW , 0x00  );
-    REG_INIT( dev->mCtrl , STC_REG_CTRL_ADDR , uint8, REG_PERM_RW , 0x00  );
-    REG_INIT( dev->mSoc , STC_REG_SOC_ADDR , uint16, REG_PERM_RW , 0x0000  );
-    REG_INIT( dev->mCounter , STC_REG_COUNTER_ADDR , uint16, REG_PERM_R , 0x0000  );
-    REG_INIT( dev->mCurrent , STC_REG_CURRENT_ADDR , uint16, REG_PERM_R , 0x0000  );
-    REG_INIT( dev->mVoltage , STC_REG_VOLTAGE_ADDR , uint16, REG_PERM_R , 0x0000  );
-    REG_INIT( dev->mTemperature , STC_REG_TEMPERATURE_ADDR , uint8, REG_PERM_R , 0x00  );
-    REG_INIT( dev->mAvgCurrent , STC_REG_AVG_CURRENT_ADDR , uint16, REG_PERM_RW , 0x0000  );
-    REG_INIT( dev->mOcv , STC_REG_OCV_ADDR , uint16, REG_PERM_RW , 0x0000  );
-    REG_INIT( dev->mCcCnf , STC_REG_CC_CNF_ADDR , uint16, REG_PERM_RW , 0x018B  );
-    REG_INIT( dev->mVmCnf , STC_REG_VM_CNF_ADDR , uint16, REG_PERM_RW , 0x0141  );
-    REG_INIT( dev->mAlarmSoc , STC_REG_ALARM_SOC_ADDR , uint8, REG_PERM_RW , 0x02  );
-    REG_INIT( dev->mAlarmVoltage , STC_REG_ALARM_VOLTAGE_ADDR , uint8, REG_PERM_RW , 0xAA  );
-    REG_INIT( dev->mCurrentThres , STC_REG_CURRENT_THRES_ADDR , uint8, REG_PERM_RW , 0x0A  );
-    REG_INIT( dev->mCmonitCount , STC_REG_CMONIT_COUNT_ADDR , uint8, REG_PERM_R , 0x78  );
-    REG_INIT( dev->mCmonitMax , STC_REG_CMONIT_MAX_ADDR , uint8, REG_PERM_RW , 0x78  );
-    REG_INIT( dev->mId , STC_REG_ID_ADDR , uint8, REG_PERM_R , 0x16  );
-    REG_INIT( dev->mCcAdj , STC_REG_CC_ADJ_ADDR , uint16, REG_PERM_R , 0x0000  );
-    REG_INIT( dev->mVmAdj , STC_REG_VM_ADJ_ADDR , uint16, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mMode , STC_REG_MODE_ADDR , uint8_t, REG_PERM_RW , 0x00  );
+    REG_INIT( dev->mCtrl , STC_REG_CTRL_ADDR , uint8_t, REG_PERM_RW , 0x00  );
+    REG_INIT( dev->mSoc , STC_REG_SOC_ADDR , uint16_t, REG_PERM_RW , 0x0000  );
+    REG_INIT( dev->mCounter , STC_REG_COUNTER_ADDR , uint16_t, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mCurrent , STC_REG_CURRENT_ADDR , uint16_t, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mVoltage , STC_REG_VOLTAGE_ADDR , uint16_t, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mTemperature , STC_REG_TEMPERATURE_ADDR , uint8_t, REG_PERM_R , 0x00  );
+    REG_INIT( dev->mAvgCurrent , STC_REG_AVG_CURRENT_ADDR , uint16_t, REG_PERM_RW , 0x0000  );
+    REG_INIT( dev->mOcv , STC_REG_OCV_ADDR , uint16_t, REG_PERM_RW , 0x0000  );
+    REG_INIT( dev->mCcCnf , STC_REG_CC_CNF_ADDR , uint16_t, REG_PERM_RW , 0x018B  );
+    REG_INIT( dev->mVmCnf , STC_REG_VM_CNF_ADDR , uint16_t, REG_PERM_RW , 0x0141  );
+    REG_INIT( dev->mAlarmSoc , STC_REG_ALARM_SOC_ADDR , uint8_t, REG_PERM_RW , 0x02  );
+    REG_INIT( dev->mAlarmVoltage , STC_REG_ALARM_VOLTAGE_ADDR , uint8_t, REG_PERM_RW , 0xAA  );
+    REG_INIT( dev->mCurrentThres , STC_REG_CURRENT_THRES_ADDR , uint8_t, REG_PERM_RW , 0x0A  );
+    REG_INIT( dev->mCmonitCount , STC_REG_CMONIT_COUNT_ADDR , uint8_t, REG_PERM_R , 0x78  );
+    REG_INIT( dev->mCmonitMax , STC_REG_CMONIT_MAX_ADDR , uint8_t, REG_PERM_RW , 0x78  );
+    REG_INIT( dev->mId , STC_REG_ID_ADDR , uint8_t, REG_PERM_R , 0x16  );
+    REG_INIT( dev->mCcAdj , STC_REG_CC_ADJ_ADDR , uint16_t, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mVmAdj , STC_REG_VM_ADJ_ADDR , uint16_t, REG_PERM_R , 0x0000  );
 
 
     /*user-block-init-start*/
