@@ -75,4 +75,11 @@ mrt_status_t stc_test(stc3117_t* dev)
 
 
 /*user-block-bottom-start*/
+uint8_t stc_read_batt_level(stc3117_t* dev)
+{
+    /* Register stores value is 1/512th of a %*/
+    uint8_t soc = stc_get_soc(dev)/512;
+
+    return soc;
+}
 /*user-block-bottom-end*/

@@ -85,6 +85,13 @@ mrt_status_t stc_test(stc3117_t* dev);
 
 
 /*user-block-bottom-start*/
+
+/**
+ * @brief Gets the curret battery level
+ * @param dev prt to stc3117 device
+ * @return battery SOC as percentage (0-100%)
+ */
+uint8_t stc_read_batt_level(stc3117_t* dev);
 /*user-block-bottom-end*/
 
 #ifdef __cplusplus
