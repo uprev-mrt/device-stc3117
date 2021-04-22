@@ -8,6 +8,7 @@
 
 #define STC3117_I2C_ADDRESS 0xE0
 #define STC3117_REG_ADDR_SIZE 1
+#define STC3117_REG_COUNT 19
 
 
 /*******************************************************************************
