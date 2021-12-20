@@ -4,8 +4,8 @@ author: Jason Berger
 created: 03/30/2020
 description: Gas gauge IC with battery charger control
 datasheet: https://www.st.com/content/ccc/resource/technical/document/datasheet/ea/b5/01/6e/dd/f0/49/3e/DM00105047.pdf/files/DM00105047.pdf/jcr:content/translations/en.DM00105047.pdf
-mfg: STMicroelectronics
-mfg_pn: STC3117IJT
+mfr: STMicroelectronics
+mfr_pn: STC3117IJT
 digikey_pn: 497-15387-1-ND
 prefix: stc  #prefix used in code generation
 bus: I2C    # defines the buses that can be used to access registers 
